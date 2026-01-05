@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathRunner Lab | Jun Yamashita</title>
+    <meta name="description" content="数学をもっと楽しく。教育アプリ開発者 Jun Yamashita のポートフォリオサイト。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --background: #0f0f1a;
+            --surface: #1a1a2e;
+            --surface-light: #252542;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-pink: #ec4899;
+            --accent-blue: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--background) 0%, #1e1e3f 50%, var(--background) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-name {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Apps Section */
+        .apps-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .app-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-icon-placeholder {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .app-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .app-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .app-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--surface-light);
+            color: var(--text-muted);
+        }
+
+        .app-badge.education {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+        }
+
+        .app-badge.utility {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .app-badge.game {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent-orange);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--surface);
+        }
+
+        .contact-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--surface-light);
+            border-radius: 9999px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            .developer-name {
+                font-size: 1.25rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="logo">MathRunner Lab</h1>
+            <p class="developer-name">Jun Yamashita</p>
+            <p class="tagline">Prototyping learning, one run at a time.</p>
+        </div>
+    </section>
+
+    <section class="apps-section">
+        <h2 class="section-title">📱 Apps</h2>
+        <div class="apps-grid">
+            <!-- 三角比ますたー -->
+            <a href="https://apps.apple.com/jp/app/%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id1640664452" class="app-card" target="_blank" rel="noopener">
+                <div class="app-header">
+                    <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #f59e0b, #ea580c);">📐</div>
+                    <h3 class="app-name">三角比ますたー</h3>
+                </div>
+                <p class="app-description">三角比学習アプリの決定版！単位円とクイズ感覚で楽しく学ぼう。Game Center対応でタイムアタックのランキングを競え！</p>
+                <span class="app-badge education">Education</span>
+            </a>
+
+            <!-- 積分ますたー -->
+            <a href="https://apps.apple.com/jp/app/%E7%A9%8D%E5%88%86%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id6736927178" class="app-card" target="_blank" rel="noopener">
+                <div class="app-header">
+                    <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">∫</div>
+                    <h3 class="app-name">積分ますたー</h3>
+                </div>
+                <p class="app-description">積分計算をマスターしよう！クイズ形式で楽しく積分の練習ができる学習アプリ。</p>
+                <span class="app-badge education">Education</span>
+            </a>
+
+            <!-- 合同式ますたー -->
+            <a href="https://apps.apple.com/jp/app/%E5%90%88%E5%90%8C%E5%BC%8F%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id6474422643" class="app-card" target="_blank" rel="noopener">
+                <div class="app-header">
+                    <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">≡</div>
+                    <h3 class="app-name">合同式ますたー</h3>
+                </div>
+                <p class="app-description">楽しいクイズ形式で１次合同方程式を習熟しよう！数学オリンピックや情報科学の基礎にも。</p>
+                <span class="app-badge education">Education</span>
+            </a>
+
+            <!-- カンタン席替え -->
+            <a href="https://apps.apple.com/jp/app/%E3%82%AB%E3%83%B3%E3%82%BF%E3%83%B3%E5%B8%AD%E6%9B%BF%E3%81%88/id1640634924" class="app-card" target="_blank" rel="noopener">
+                <div class="app-header">
+                    <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #10b981, #14b8a6);">🪑</div>
+                    <h3 class="app-name">カンタン席替え</h3>
+                </div>
+                <p class="app-description">授業の毎時間でも気軽に使える席替えアプリ。iPhone、iPad、Mac、Apple TVに対応！</p>
+                <span class="app-badge utility">Utility</span>
+            </a>
+
+            <!-- 数字を順番に押す -->
+            <a href="https://apps.apple.com/jp/app/%E6%95%B0%E5%AD%97%E3%82%92%E9%A0%86%E7%95%AA%E3%81%AB%E6%8A%BC%E3%81%99/id6443621796" class="app-card" target="_blank" rel="noopener">
+                <div class="app-header">
+                    <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">🔢</div>
+                    <h3 class="app-name">数字を順番に押す</h3>
+                </div>
+                <p class="app-description">暇つぶし、脳トレ、目の体操、速読トレーニングにどうぞ！シンプルだけどハマる！</p>
+                <span class="app-badge game">Game</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <h2>📬 Contact & SNS</h2>
+        <p class="coming-soon">🚧 Coming Soon...</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Jun Yamashita / MathRunner Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>
