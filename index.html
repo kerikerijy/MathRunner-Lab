@@ -9,17 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=M+PLUS+Rounded+1c:wght@500;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --primary: #4A90E2;
-            --accent: #FF6B6B;
-            --text-main: #2D3436;
-            --text-sub: #636E72;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.8);
-            --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+            --pop-orange: #FF9F1C;
+            --pop-blue: #2EC4B6;
+            --pop-yellow: #FFBF69;
+            --pop-dark: #333333;
+            --pop-white: #FFFFFF;
         }
 
         * {
@@ -29,10 +27,11 @@
         }
 
         body {
-            font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
-            color: var(--text-main);
-            background-color: #f0f8ff;
+            font-family: 'M PLUS Rounded 1c', 'Fredoka', sans-serif;
+            color: var(--pop-dark);
+            background-color: #FAFAFA;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* Hero Background */
@@ -43,21 +42,11 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: url('bg.png');
+            background-image: url('bg_pop.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%);
-            backdrop-filter: blur(5px);
+            opacity: 0.15;
+            /* 淡く表示 */
         }
 
         /* Container */
@@ -65,89 +54,88 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative;
         }
 
         /* Header */
         header {
             text-align: center;
-            padding: 6rem 1rem 4rem;
+            padding: 5rem 1rem 3rem;
         }
 
-        .logo-box {
+        .header-deco {
             display: inline-block;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--glass-border);
-            padding: 2rem 4rem;
-            border-radius: 30px;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 2rem;
-            animation: float 6s ease-in-out infinite;
+            background: var(--pop-white);
+            border: 4px solid var(--pop-dark);
+            box-shadow: 8px 8px 0px var(--pop-orange);
+            padding: 2.5rem 4rem;
+            border-radius: 20px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
         }
 
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .header-deco:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 12px 12px 0px var(--pop-blue);
         }
 
         h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(45deg, #4A90E2, #FF6B6B);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            color: var(--pop-dark);
             margin-bottom: 0.5rem;
-            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: 0.05em;
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: var(--text-sub);
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--pop-blue);
+            margin-bottom: 0.5rem;
         }
 
         .english-tagline {
             font-size: 0.9rem;
-            color: #888;
-            margin-top: 0.5rem;
-            letter-spacing: 0.05em;
+            color: #777;
+            font-family: 'Fredoka', sans-serif;
         }
 
         /* Apps Grid */
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             padding-bottom: 4rem;
         }
 
         .app-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid white;
-            border-radius: 24px;
+            background: var(--pop-white);
+            border: 3px solid var(--pop-dark);
+            border-radius: 20px;
             padding: 1.5rem;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 6px 6px 0px var(--pop-dark);
             display: flex;
             flex-direction: column;
-            height: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
         }
 
         .app-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.95);
+            top: -4px;
+            left: -4px;
+            box-shadow: 10px 10px 0px var(--pop-orange);
+        }
+
+        .app-card:nth-child(2n):hover {
+            box-shadow: 10px 10px 0px var(--pop-blue);
+        }
+
+        .app-card:nth-child(3n):hover {
+            box-shadow: 10px 10px 0px var(--pop-yellow);
         }
 
         .card-header {
@@ -160,22 +148,23 @@
         .app-icon {
             width: 72px;
             height: 72px;
-            border-radius: 18px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            border: 2px solid var(--pop-dark);
         }
 
         .app-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-main);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--pop-dark);
         }
 
         .app-desc {
             font-size: 0.95rem;
-            color: var(--text-sub);
+            color: #555;
             line-height: 1.6;
             flex-grow: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .badges {
@@ -184,61 +173,68 @@
         }
 
         .badge {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-weight: 800;
+            border: 2px solid var(--pop-dark);
         }
 
         .bg-education {
-            background: #E3F2FD;
-            color: #1E88E5;
+            background: #E0F7FA;
+            color: #006064;
         }
 
         .bg-game {
             background: #FFF3E0;
-            color: #FB8C00;
+            color: #E65100;
         }
 
         .bg-utility {
             background: #E8F5E9;
-            color: #43A047;
+            color: #1B5E20;
         }
 
         .bg-free {
-            background: #F3E5F5;
-            color: #8E24AA;
+            background: var(--pop-yellow);
+            color: var(--pop-dark);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            position: relative;
+            padding: 3rem;
+            color: var(--pop-dark);
+            font-weight: 700;
         }
 
         /* Coming Soon */
         .coming-soon {
-            background: rgba(255, 255, 255, 0.6);
+            background: var(--pop-dark);
+            color: var(--pop-white);
             border-radius: 50px;
-            padding: 0.5rem 1.5rem;
+            padding: 0.8rem 2rem;
             display: inline-block;
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            border: 1px solid white;
+            margin-top: 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 4px 4px 0px #AAA;
+            transform: rotate(2deg);
         }
 
         @media (max-width: 600px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
-            .logo-box {
-                padding: 2rem 1rem;
+            .header-deco {
+                padding: 2rem 1.5rem;
                 width: 100%;
+                transform: rotate(0deg);
+            }
+
+            .apps-grid {
+                gap: 1.5rem;
             }
         }
     </style>
@@ -246,13 +242,12 @@
 
 <body>
     <div class="fixed-bg"></div>
-    <div class="overlay"></div>
 
     <div class="container">
         <header>
-            <div class="logo-box">
+            <div class="header-deco">
                 <h1>MathRunner Lab</h1>
-                <p class="tagline">学びをもっと楽しく、もっと身近に。</p>
+                <p class="tagline">学びをもっと楽しく、もっと身近に。🚀</p>
                 <p class="english-tagline">Prototyping learning, one run at a time.</p>
             </div>
         </header>
@@ -336,7 +331,7 @@
 
         <footer>
             <div class="coming-soon">📬 Contact & SNS: Coming Soon...</div>
-            <p style="margin-top: 2rem;">© 2025 MathRunner Lab</p>
+            <p style="margin-top: 2rem; color: #777;">© 2025 MathRunner Lab</p>
         </footer>
     </div>
 </body>
