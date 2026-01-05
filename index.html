@@ -9,20 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --gold: #d4af37;
-            --gold-light: #f5e6a3;
-            --cream: #fef9e7;
-            --warm-white: #fdfcfa;
-            --text-dark: #2d2a26;
-            --text-muted: #6b6560;
-            --accent-warm: #e8985e;
-            --accent-coral: #e57373;
-            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+            --primary: #4A90E2;
+            --accent: #FF6B6B;
+            --text-main: #2D3436;
+            --text-sub: #636E72;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
         }
 
         * {
@@ -32,102 +29,64 @@
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
+            font-family: 'Nunito', 'M PLUS Rounded 1c', sans-serif;
+            color: var(--text-main);
+            background-color: #f0f8ff;
             min-height: 100vh;
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #fff9e6 0%, #fff5f5 50%, #f5f0ff 100%);
-            position: relative;
-            overflow: hidden;
+        /* Hero Background */
+        .fixed-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(229, 152, 94, 0.06) 0%, transparent 40%);
-            animation: float 20s ease-in-out infinite;
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 6rem 1rem 4rem;
+        }
+
+        .logo-box {
+            display: inline-block;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--glass-border);
+            padding: 2rem 4rem;
+            border-radius: 30px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-
-            50% {
-                transform: translate(-2%, -2%) rotate(3deg);
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--accent-warm) 50%, var(--gold) 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: shine 3s ease-in-out infinite;
-            letter-spacing: -0.02em;
-        }
-
-        @keyframes shine {
-
-            0%,
-            100% {
-                background-position: 0% center;
-            }
-
-            50% {
-                background-position: 100% center;
-            }
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-        }
-
-        .tagline-sub {
-            font-size: 1rem;
-            color: var(--text-muted);
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        .hero-emoji {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
 
             0%,
             100% {
@@ -139,269 +98,247 @@
             }
         }
 
-        /* Apps Section */
-        .apps-section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-dark);
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #4A90E2, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
-        .section-subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            font-weight: 700;
         }
 
+        .english-tagline {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Apps Grid */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
+            padding-bottom: 4rem;
         }
 
         .app-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid white;
             border-radius: 24px;
-            padding: 1.75rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 1.5rem;
             text-decoration: none;
             color: inherit;
-            display: block;
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--accent-warm));
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .app-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
         }
 
-        .app-card:hover::before {
-            opacity: 1;
-        }
-
-        .app-header {
+        .card-header {
             display: flex;
             align-items: center;
-            gap: 1rem;
             margin-bottom: 1rem;
+            gap: 1rem;
         }
 
         .app-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .app-name {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-dark);
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
-        .app-description {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.7;
+        .app-desc {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            flex-grow: 1;
             margin-bottom: 1rem;
         }
 
-        .app-badge {
-            display: inline-block;
-            padding: 0.3rem 0.9rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .app-badge.education {
-            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
-            color: #2e7d32;
-        }
-
-        .app-badge.utility {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            color: #1565c0;
-        }
-
-        .app-badge.game {
-            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-            color: #e65100;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(180deg, var(--warm-white) 0%, #fff9e6 100%);
-        }
-
-        .contact-section h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .coming-soon {
-            display: inline-flex;
-            align-items: center;
+        .badges {
+            display: flex;
             gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 9999px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            box-shadow: var(--shadow-soft);
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        .bg-education {
+            background: #E3F2FD;
+            color: #1E88E5;
+        }
+
+        .bg-game {
+            background: #FFF3E0;
+            color: #FB8C00;
+        }
+
+        .bg-utility {
+            background: #E8F5E9;
+            color: #43A047;
+        }
+
+        .bg-free {
+            background: #F3E5F5;
+            color: #8E24AA;
         }
 
         /* Footer */
         footer {
-            padding: 2rem;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            background: var(--cream);
+            padding: 2rem;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            position: relative;
         }
 
-        footer a {
-            color: var(--gold);
-            text-decoration: none;
+        /* Coming Soon */
+        .coming-soon {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            border: 1px solid white;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo {
+        @media (max-width: 600px) {
+            h1 {
                 font-size: 2.5rem;
             }
 
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .apps-grid {
-                grid-template-columns: 1fr;
+            .logo-box {
+                padding: 2rem 1rem;
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-emoji">🏃‍♂️✨</div>
-            <h1 class="logo">MathRunner Lab</h1>
-            <p class="tagline">学びをもっと楽しく、もっと身近に。</p>
-            <p class="tagline-sub">Prototyping learning, one run at a time.</p>
-        </div>
-    </section>
+    <div class="fixed-bg"></div>
+    <div class="overlay"></div>
 
-    <section class="apps-section">
-        <div class="section-header">
-            <h2 class="section-title">📱 アプリ一覧</h2>
-            <p class="section-subtitle">すべて無料でご利用いただけます</p>
-        </div>
+    <div class="container">
+        <header>
+            <div class="logo-box">
+                <h1>MathRunner Lab</h1>
+                <p class="tagline">学びをもっと楽しく、もっと身近に。</p>
+                <p class="english-tagline">Prototyping learning, one run at a time.</p>
+            </div>
+        </header>
+
         <div class="apps-grid">
-            <!-- 三角比ますたー -->
+            <!-- App 1: 三角比ますたー -->
             <a href="https://apps.apple.com/jp/app/%E4%B8%89%E8%A7%92%E6%AF%94%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id1640664452"
-                class="app-card" target="_blank" rel="noopener">
-                <div class="app-header">
+                target="_blank" class="app-card">
+                <div class="card-header">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/91/b7/7891b75d-be9f-26c4-88fb-d6f6636c379f/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/100x100bb.jpg"
-                        alt="三角比ますたー" class="app-icon">
-                    <h3 class="app-name">三角比ますたー</h3>
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">三角比ますたー</div>
                 </div>
-                <p class="app-description">三角比学習アプリの決定版！単位円とクイズ感覚で楽しく学ぼう。Game Center対応でランキングを競える！</p>
-                <span class="app-badge education">📚 Education</span>
+                <p class="app-desc">単位円をくるくる回して三角比を直感理解！クイズ形式でサクサク進める、高校数学の決定版アプリ。</p>
+                <div class="badges">
+                    <span class="badge bg-education">教育</span>
+                    <span class="badge bg-free">無料</span>
+                </div>
             </a>
 
-            <!-- 積分ますたー -->
+            <!-- App 2: 積分ますたー -->
             <a href="https://apps.apple.com/jp/app/%E7%A9%8D%E5%88%86%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id6736927178"
-                class="app-card" target="_blank" rel="noopener">
-                <div class="app-header">
+                target="_blank" class="app-card">
+                <div class="card-header">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ac/00/79/ac0079a3-ae10-ef26-43e5-ce3f82e1f1c1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg"
-                        alt="積分ますたー" class="app-icon">
-                    <h3 class="app-name">積分ますたー</h3>
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">積分ますたー</div>
                 </div>
-                <p class="app-description">積分計算をマスターしよう！クイズ形式で楽しく積分の練習ができる学習アプリ。</p>
-                <span class="app-badge education">📚 Education</span>
+                <p class="app-desc">パズルのように積分を解こう。豊富な問題数で、計算力がメキメキ上がる！</p>
+                <div class="badges">
+                    <span class="badge bg-education">教育</span>
+                    <span class="badge bg-free">無料</span>
+                </div>
             </a>
 
-            <!-- 合同式ますたー -->
+            <!-- App 3: 合同式ますたー -->
             <a href="https://apps.apple.com/jp/app/%E5%90%88%E5%90%8C%E5%BC%8F%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id6474422643"
-                class="app-card" target="_blank" rel="noopener">
-                <div class="app-header">
+                target="_blank" class="app-card">
+                <div class="card-header">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/c9/f4/d2/c9f4d2e0-16e8-6947-a171-e0ce2fa69780/AppIcon-0-0-1x_U007epad-0-85-220.png/100x100bb.jpg"
-                        alt="合同式ますたー" class="app-icon">
-                    <h3 class="app-name">合同式ますたー</h3>
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">合同式ますたー</div>
                 </div>
-                <p class="app-description">楽しいクイズ形式で１次合同方程式を習熟しよう！数学オリンピックや情報科学の基礎にも。</p>
-                <span class="app-badge education">📚 Education</span>
+                <p class="app-desc">整数問題のカギ、合同式（Mod）をマスター。数学オリンピックやアルゴリズムの基礎固めに。</p>
+                <div class="badges">
+                    <span class="badge bg-education">教育</span>
+                    <span class="badge bg-free">無料</span>
+                </div>
             </a>
 
-            <!-- カンタン席替え -->
+            <!-- App 4: カンタン席替え -->
             <a href="https://apps.apple.com/jp/app/%E3%82%AB%E3%83%B3%E3%82%BF%E3%83%B3%E5%B8%AD%E6%9B%BF%E3%81%88/id1640634924"
-                class="app-card" target="_blank" rel="noopener">
-                <div class="app-header">
+                target="_blank" class="app-card">
+                <div class="card-header">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/a2/86/03/a286031d-0b15-2209-62a7-d19f04fb4763/AppIcon-1x_U007emarketing-0-4-sRGB-85-220.png/100x100bb.jpg"
-                        alt="カンタン席替え" class="app-icon">
-                    <h3 class="app-name">カンタン席替え</h3>
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">カンタン席替え</div>
                 </div>
-                <p class="app-description">授業の毎時間でも気軽に使える席替えアプリ。iPhone、iPad、Mac、Apple TVに対応！</p>
-                <span class="app-badge utility">🛠️ Utility</span>
+                <p class="app-desc">先生の味方！面倒な席替えを一瞬で。条件設定もできる高機能な席替えルーレット。</p>
+                <div class="badges">
+                    <span class="badge bg-utility">ユーティリティ</span>
+                    <span class="badge bg-free">無料</span>
+                </div>
             </a>
 
-            <!-- 数字を順番に押す -->
+            <!-- App 5: 数字を順番に押す -->
             <a href="https://apps.apple.com/jp/app/%E6%95%B0%E5%AD%97%E3%82%92%E9%A0%86%E7%95%AA%E3%81%AB%E6%8A%BC%E3%81%99/id6443621796"
-                class="app-card" target="_blank" rel="noopener">
-                <div class="app-header">
+                target="_blank" class="app-card">
+                <div class="card-header">
                     <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/22/36/17/223617d7-287a-da1c-65eb-3b5ceba19a18/AppIcon-1x_U007emarketing-0-7-0-85-220.png/100x100bb.jpg"
-                        alt="数字を順番に押す" class="app-icon">
-                    <h3 class="app-name">数字を順番に押す</h3>
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">数字を順番に押す</div>
                 </div>
-                <p class="app-description">暇つぶし、脳トレ、目の体操、速読トレーニングにどうぞ！シンプルだけどハマる！</p>
-                <span class="app-badge game">🎮 Game</span>
+                <p class="app-desc">シンプルだけどハマる！脳トレや周辺視野トレーニングに最適なミニゲーム。</p>
+                <div class="badges">
+                    <span class="badge bg-game">ゲーム</span>
+                    <span class="badge bg-free">無料</span>
+                </div>
             </a>
         </div>
-    </section>
 
-    <section class="contact-section">
-        <h2>📬 お問い合わせ・SNS</h2>
-        <div class="coming-soon">
-            <span>🚧</span>
-            <span>準備中です...</span>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 MathRunner Lab. All rights reserved.</p>
-    </footer>
+        <footer>
+            <div class="coming-soon">📬 Contact & SNS: Coming Soon...</div>
+            <p style="margin-top: 2rem;">© 2025 MathRunner Lab</p>
+        </footer>
+    </div>
 </body>
 
 </html>
