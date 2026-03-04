@@ -1,0 +1,285 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="座席ますたー | ユーザーマニュアル">
+    <div class="fixed-bg"></div>
+    <div class="container">
+        <a href="/MathRunner-Lab/" class="nav-back">← トップページへ戻る</a>
+
+        <div class="header">
+            <h1>🪑 座席ますたー</h1>
+            <p>クラス管理をもっと楽しく！</p>
+        </div>
+
+        <div class="content">
+            <h2>アプリ概要</h2>
+            <p>「座席ますたー」は、小・中・高校の先生向けに開発されたiPad専用アプリです。煩わしい席替えや出欠管理をシンプルにし、ワクワクする演出でクラス運営をサポートします。</p>
+
+            <h2>主な機能</h2>
+
+            <div class="feature-card">
+                <h3>👥 クラス＆生徒管理</h3>
+                <ul>
+                    <li>クラスの作成と管理（無料版は1クラスまで、有料版は無制限）</li>
+                    <li>生徒の追加・編集・削除、アバター（アイコン）の設定</li>
+                    <li>クラス固有のメモ機能（色分け対応）</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>🪑 座席表のレイアウト・履歴保存</h3>
+                <ul>
+                    <li>「行×列」の自由なレイアウト設定と、不要な座席の無効化機能</li>
+                    <li>直感的なドラッグ＆ドロップによる座席配置</li>
+                    <li><strong>履歴管理 <span class="badge badge-ultra">ULTRA</span></strong>:<br>
+                    Safari風のタブUIで、通常授業・班活動・テスト用など用途別に複数の座席表を管理・保存できます。</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎲 ドキドキの席替え＆指名機能</h3>
+                <p>ただのランダム配置だけでなく、生徒と一緒に盛り上がれる各種演出機能を搭載しています。</p>
+                <ul>
+                    <li><strong>スロット演出 <span class="badge badge-pro">PRO</span></strong>: ドラムロール音とともにワクワクする席替え。</li>
+                    <li><strong>カードシャッフル演出 <span class="badge badge-pro">PRO</span></strong>:<br>飛び交うカード、最後は「天国席（窓際）」と「地獄席（教卓前）」の運命の対決！</li>
+                    <li><strong>ワクワク指名演出 <span class="badge badge-pro">PRO</span></strong>:<br>ルーレット・爆弾・雷演出を使って楽しく生徒を指名。欠席者は自動的に除外されます。</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3>📝 出欠管理＆PDF出力 <span class="badge badge-ultra">ULTRA</span></h3>
+                <ul>
+                    <li>7種類のステータス（出席・欠席・遅刻・早退・公欠・出停・忌引）を素早く記録。</li>
+                    <li>曜日ごとの時間割カレンダーで管理し、科目別の記録も残せます。</li>
+                    <li>指定期間の出欠データを名列番号順のPDFとして出力可能。業務の効率化に貢献します。</li>
+                </ul>
+            </div>
+
+            <h2>プラン比較表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>機能</th>
+                        <th>無料版</th>
+                        <th>PRO</th>
+                        <th>ULTRA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>クラス作成上限</td>
+                        <td>1クラス</td>
+                        <td>無制限</td>
+                        <td>無制限</td>
+                    </tr>
+                    <tr>
+                        <td>席替え・指名（通常）</td>
+                        <td>○</td>
+                        <td>○</td>
+                        <td>○</td>
+                    </tr>
+                    <tr>
+                        <td>席替え・指名（特殊演出付き）</td>
+                        <td>×</td>
+                        <td>○</td>
+                        <td>○</td>
+                    </tr>
+                    <tr>
+                        <td>座席表の複数履歴保存</td>
+                        <td>×</td>
+                        <td>×</td>
+                        <td>○</td>
+                    </tr>
+                    <tr>
+                        <td>出欠管理・カレンダー・PDF出力</td>
+                        <td>×</td>
+                        <td>×</td>
+                        <td>○</td>
+                    </tr>
+                    <tr>
+                        <td>広告表示</td>
+                        <td>あり</td>
+                        <td>なし</td>
+                        <td>なし</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>教育機関(MDM)でのご利用</h2>
+            <div class="mdm-box">
+                <p>学校や自治体単位でiPadを一括管理（MDM）されている場合、<code>Managed App Configuration</code> に専用のライセンスキー（<code>LicenseKey</code>）を設定することで、全iPadで即座にULTRA機能をご利用いただけます。<br>導入をご検討の学校様は、サポートまでお問い合わせください。</p>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .fixed-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('/MathRunner-Lab/bg_pop.png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 1rem;
+        background: var(--pop-white);
+        border: 4px solid var(--pop-dark);
+        border-radius: 20px;
+        box-shadow: 8px 8px 0px var(--pop-blue);
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--pop-orange);
+    }
+
+    .nav-back {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        text-decoration: none;
+        color: var(--text-main, #333333);
+        font-weight: 700;
+        background: var(--pop-white);
+        border: 3px solid var(--pop-dark);
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        transition: all 0.2s;
+        box-shadow: 4px 4px 0px var(--pop-dark);
+    }
+
+    .nav-back:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px var(--pop-orange);
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        border-bottom: 3px solid var(--pop-yellow);
+        padding-bottom: 0.5rem;
+        margin: 2.5rem 0 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1rem;
+        color: var(--pop-blue);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    p, ul {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-card {
+        background: var(--pop-white);
+        border: 3px solid var(--pop-dark);
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        background: var(--pop-white);
+        border-radius: 12px;
+        border-style: hidden;
+        box-shadow: 0 0 0 3px var(--pop-dark); /* Border radius hack for tables */
+    }
+
+    th, td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 2px solid var(--pop-dark);
+    }
+
+    th {
+        background: var(--pop-yellow);
+        color: #333;
+        font-weight: 800;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: #fff;
+        margin-left: 0.5rem;
+        vertical-align: middle;
+    }
+
+    .badge-pro { background: linear-gradient(45deg, #FF9F1C, #FF4081); }
+    .badge-ultra { background: linear-gradient(45deg, #2EC4B6, #8E24AA); }
+
+    .mdm-box {
+        background: rgba(46, 196, 182, 0.1);
+        border-left: 6px solid var(--pop-blue);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+    }
+
+    code {
+        background: var(--pop-dark);
+        color: var(--pop-white);
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.9em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        /* シンプルなダークモード対応（必要に応じてLayoutへ移行） */
+        .nav-back { color: var(--pop-white); background: var(--pop-dark); }
+        th { color: var(--pop-dark); }
+    }
+
+    @media (max-width: 600px) {
+        .header h1 { font-size: 2rem; }
+        .container { padding: 1rem; }
+        th, td { padding: 0.8rem 0.5rem; font-size: 0.9rem; }
+    }
+</style>
