@@ -3,12 +3,13 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="座席ますたー | ユーザーマニュアル">
-    <div class="fixed-bg"></div>
-    <div class="container">
+    <div class="fixed-bg sm-bg"></div>
+    <div class="container sm-theme">
         <a href="/MathRunner-Lab/" class="nav-back">← トップページへ戻る</a>
 
         <div class="header">
-            <h1>🪑 座席ますたー</h1>
+            <img src="/MathRunner-Lab/sm_app_icon.png" alt="座席ますたー アイコン" class="header-icon" />
+            <h1>座席ますたー</h1>
             <p>クラス管理をもっと楽しく！</p>
         </div>
 
@@ -19,16 +20,52 @@ import Layout from '../layouts/Layout.astro';
             <h2>主な機能</h2>
 
             <div class="feature-card">
-                <h3>👥 クラス＆生徒管理</h3>
+                <h3>クラス＆生徒管理</h3>
                 <ul>
                     <li>クラスの作成と管理（無料版は1クラスまで、有料版は無制限）</li>
                     <li>生徒の追加・編集・削除、アバター（アイコン）の設定</li>
                     <li>クラス固有のメモ機能（色分け対応）</li>
                 </ul>
+                <div class="screenshot-gallery" id="screenshotGallery">
+                    <button class="gallery-nav gallery-prev" aria-label="前へ">‹</button>
+                    <button class="gallery-nav gallery-next" aria-label="次へ">›</button>
+                    <div class="gallery-scroll" id="galleryScroll">
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/screenshot_class1.png" alt="名簿リスト表示" loading="lazy" />
+                            <p class="gallery-caption">名簿のリスト表示・生徒の追加</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/screenshot_class2.png" alt="生徒情報の編集" loading="lazy" />
+                            <p class="gallery-caption">生徒情報の編集・アバター設定</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/screenshot_class3.png" alt="名簿グリッド表示" loading="lazy" />
+                            <p class="gallery-caption">グリッド表示でアバターを一覧</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/screenshot_class4.png" alt="座席表" loading="lazy" />
+                            <p class="gallery-caption">座席表のフル表示</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/screenshot_class5.png" alt="席の割り当て" loading="lazy" />
+                            <p class="gallery-caption">席の割り当て・固定・解除</p>
+                        </div>
+                    </div>
+                    <div class="gallery-dots" id="galleryDots">
+                        <span class="gallery-dot active"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                    </div>
+                </div>
             </div>
 
             <div class="feature-card">
-                <h3>🪑 座席表のレイアウト・履歴保存</h3>
+                <h3>座席表のレイアウト・履歴保存</h3>
+                <div class="media-container inline-media">
+                   <video src="/MathRunner-Lab/sm_layout.mp4" autoplay loop muted playsinline></video>
+                </div>
                 <ul>
                     <li>「行×列」の自由なレイアウト設定と、不要な座席の無効化機能</li>
                     <li>直感的なドラッグ＆ドロップによる座席配置</li>
@@ -38,17 +75,29 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="feature-card">
-                <h3>🎲 ドキドキの席替え＆指名機能</h3>
+                <h3>ドキドキの席替え＆指名機能</h3>
                 <p>ただのランダム配置だけでなく、生徒と一緒に盛り上がれる各種演出機能を搭載しています。</p>
+                <div class="media-container">
+                   <video src="/MathRunner-Lab/sm_shuffle.mp4" autoplay loop muted playsinline></video>
+                   <p class="media-caption">↑ カードシャッフル演出で天国と地獄の席が決まる瞬間！</p>
+                </div>
                 <ul>
                     <li><strong>スロット演出 <span class="badge badge-pro">PRO</span></strong>: ドラムロール音とともにワクワクする席替え。</li>
                     <li><strong>カードシャッフル演出 <span class="badge badge-pro">PRO</span></strong>:<br>飛び交うカード、最後は「天国席（窓際）」と「地獄席（教卓前）」の運命の対決！</li>
                     <li><strong>ワクワク指名演出 <span class="badge badge-pro">PRO</span></strong>:<br>ルーレット・爆弾・雷演出を使って楽しく生徒を指名。欠席者は自動的に除外されます。</li>
                 </ul>
+                <div class="media-container">
+                   <video src="/MathRunner-Lab/sm_roulette.mp4" autoplay loop muted playsinline></video>
+                   <p class="media-caption">↑ ルーレット演出で盛り上がる指名タイム！</p>
+                </div>
             </div>
 
             <div class="feature-card">
-                <h3>📝 出欠管理＆PDF出力 <span class="badge badge-ultra">ULTRA</span></h3>
+                <h3>出欠管理＆PDF出力 <span class="badge badge-ultra">ULTRA</span></h3>
+                 <div class="media-container">
+                   <video src="/MathRunner-Lab/sm_attendance.mp4" autoplay loop muted playsinline></video>
+                   <p class="media-caption">↑ 出欠モードでスムーズに記録</p>
+                </div>
                 <ul>
                     <li>7種類のステータス（出席・欠席・遅刻・早退・公欠・出停・忌引）を素早く記録。</li>
                     <li>曜日ごとの時間割カレンダーで管理し、科目別の記録も残せます。</li>
@@ -97,17 +146,11 @@ import Layout from '../layouts/Layout.astro';
                         <td>×</td>
                         <td>○</td>
                     </tr>
-                    <tr>
-                        <td>広告表示</td>
-                        <td>あり</td>
-                        <td>なし</td>
-                        <td>なし</td>
-                    </tr>
                 </tbody>
             </table>
 
             <h2>教育機関(MDM)でのご利用</h2>
-            <div class="mdm-box">
+            <div class="mdm-box border-wood">
                 <p>学校や自治体単位でiPadを一括管理（MDM）されている場合、<code>Managed App Configuration</code> に専用のライセンスキー（<code>LicenseKey</code>）を設定することで、全iPadで即座にULTRA機能をご利用いただけます。<br>導入をご検討の学校様は、サポートまでお問い合わせください。</p>
             </div>
         </div>
@@ -115,45 +158,68 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-    .fixed-bg {
+    /* Seat Master Specific Theme Variables */
+    .sm-theme {
+        --sm-green: #2E4C3F;
+        --sm-wood: #8B5A2B;
+        --sm-chalk: #FDFBF7;
+        --sm-accent: #D96C4A;
+        --sm-text: #333333;
+    }
+
+    .fixed-bg.sm-bg {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         z-index: -1;
-        background-image: url('/MathRunner-Lab/bg_pop.png');
+        background-image: url('/MathRunner-Lab/bg_classroom_vivid_wide.png');
         background-size: cover;
         background-position: center;
-        opacity: 0.1;
+        opacity: 0.15; /* Slightly adjusted to show the classroom feel */
     }
 
     .container {
         max-width: 800px;
         margin: 0 auto;
         padding: 2rem;
+        color: var(--sm-text);
     }
 
     .header {
         text-align: center;
         margin-bottom: 3rem;
-        padding: 3rem 1rem;
+        padding: 3rem 1rem 2rem;
         background: var(--pop-white);
-        border: 4px solid var(--pop-dark);
+        border: 4px solid var(--sm-green);
         border-radius: 20px;
-        box-shadow: 8px 8px 0px var(--pop-blue);
+        box-shadow: 8px 8px 0px var(--sm-wood);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-icon {
+        width: 90px;
+        height: 90px;
+        border-radius: 20px;
+        border: 3px solid var(--sm-green);
+        margin-bottom: 1rem;
+        box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
     }
 
     .header h1 {
         font-size: 2.5rem;
         font-weight: 800;
         margin-bottom: 0.5rem;
+        color: var(--sm-green);
     }
 
     .header p {
         font-size: 1.2rem;
         font-weight: 700;
-        color: var(--pop-orange);
+        color: var(--sm-wood);
     }
 
     .nav-back {
@@ -161,32 +227,33 @@ import Layout from '../layouts/Layout.astro';
         align-items: center;
         margin-bottom: 2rem;
         text-decoration: none;
-        color: var(--text-main, #333333);
+        color: var(--sm-green);
         font-weight: 700;
         background: var(--pop-white);
-        border: 3px solid var(--pop-dark);
+        border: 3px solid var(--sm-green);
         padding: 0.8rem 1.5rem;
         border-radius: 30px;
         transition: all 0.2s;
-        box-shadow: 4px 4px 0px var(--pop-dark);
+        box-shadow: 4px 4px 0px var(--sm-green);
     }
 
     .nav-back:hover {
         transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0px var(--pop-orange);
+        box-shadow: 6px 6px 0px var(--sm-wood);
     }
 
     h2 {
         font-size: 1.8rem;
-        border-bottom: 3px solid var(--pop-yellow);
+        border-bottom: 4px solid var(--sm-wood);
         padding-bottom: 0.5rem;
         margin: 2.5rem 0 1.5rem;
+        color: var(--sm-green);
     }
 
     h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin: 1.5rem 0 1rem;
-        color: var(--pop-blue);
+        color: var(--sm-wood);
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -207,32 +274,179 @@ import Layout from '../layouts/Layout.astro';
 
     .feature-card {
         background: var(--pop-white);
-        border: 3px solid var(--pop-dark);
-        padding: 1.5rem;
+        border: 3px solid var(--sm-green);
+        padding: 2rem;
         border-radius: 16px;
-        margin-bottom: 1.5rem;
-        box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+        box-shadow: 6px 6px 0px rgba(46, 76, 63, 0.15); /* sm-green transparent */
+        overflow: hidden;
+    }
+
+    /* Screenshot Gallery */
+    .screenshot-gallery {
+        margin: 1.5rem -0.5rem 0;
+    }
+
+    .gallery-scroll {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0.5rem;
+        scrollbar-width: none;
+    }
+
+    .gallery-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-item {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+        background: #f8f8f8;
+        border-radius: 12px;
+        border: 2px solid var(--sm-green);
+        overflow: hidden;
+        box-shadow: 4px 4px 0px rgba(46, 76, 63, 0.1);
+        transition: transform 0.2s;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 4px 6px 0px rgba(46, 76, 63, 0.15);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        display: block;
+        border-bottom: 2px solid var(--sm-green);
+    }
+
+    .gallery-caption {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--sm-wood);
+        text-align: center;
+        padding: 0.6rem 0.5rem;
+        margin: 0;
+    }
+
+    /* Gallery Navigation */
+    .screenshot-gallery {
+        position: relative;
+    }
+
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-70%);
+        z-index: 2;
+        background: var(--sm-green);
+        color: var(--sm-chalk);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+        transition: all 0.2s;
+        opacity: 0.85;
+    }
+
+    .gallery-nav:hover {
+        opacity: 1;
+        transform: translateY(-70%) scale(1.1);
+    }
+
+    .gallery-prev { left: 0.3rem; }
+    .gallery-next { right: 0.3rem; }
+
+    .gallery-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+    }
+
+    .gallery-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ccc;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .gallery-dot.active {
+        background: var(--sm-green);
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 600px) {
+        .gallery-nav { display: none; }
+    }
+
+    /* Media/Video Player Styles */
+    .media-container {
+        margin: 1.5rem 0;
+        text-align: center;
+        background: #f4f4f4;
+        border-radius: 12px;
+        border: 2px solid var(--sm-green);
+        padding: 0.5rem;
+    }
+    
+    .media-container.inline-media {
+        float: right;
+        width: 45%;
+        margin: 0 0 1rem 1.5rem;
+    }
+
+    .media-container video {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+        background: var(--sm-green);
+    }
+
+    .media-caption {
+        font-size: 0.85rem;
+        color: #555;
+        margin: 0.5rem 0 0 0;
+        font-weight: 700;
     }
 
     table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         margin: 1.5rem 0;
         background: var(--pop-white);
         border-radius: 12px;
-        border-style: hidden;
-        box-shadow: 0 0 0 3px var(--pop-dark); /* Border radius hack for tables */
+        border: 3px solid var(--sm-green);
+        overflow: hidden; /* For border radius */
     }
 
     th, td {
         padding: 1rem;
         text-align: left;
-        border-bottom: 2px solid var(--pop-dark);
+        border-bottom: 2px solid var(--sm-green);
+        border-right: 2px solid var(--sm-green);
+    }
+    
+    th:last-child, td:last-child {
+        border-right: none;
     }
 
     th {
-        background: var(--pop-yellow);
-        color: #333;
+        background: var(--sm-green);
+        color: var(--sm-chalk);
         font-weight: 800;
     }
 
@@ -251,35 +465,82 @@ import Layout from '../layouts/Layout.astro';
         vertical-align: middle;
     }
 
-    .badge-pro { background: linear-gradient(45deg, #FF9F1C, #FF4081); }
-    .badge-ultra { background: linear-gradient(45deg, #2EC4B6, #8E24AA); }
+    .badge-pro { background: linear-gradient(45deg, var(--sm-accent), #FF4081); }
+    .badge-ultra { background: linear-gradient(45deg, var(--sm-green), #8E24AA); }
 
     .mdm-box {
-        background: rgba(46, 196, 182, 0.1);
-        border-left: 6px solid var(--pop-blue);
+        background: rgba(139, 90, 43, 0.1); /* wood shadow */
+        border-left: 6px solid var(--sm-wood);
         padding: 1.5rem;
         border-radius: 8px;
         margin-top: 1rem;
     }
 
     code {
-        background: var(--pop-dark);
-        color: var(--pop-white);
-        padding: 0.2rem 0.5rem;
+        background: var(--sm-green);
+        color: var(--sm-chalk);
+        padding: 0.2rem 0.6rem;
         border-radius: 6px;
         font-family: monospace;
         font-size: 0.9em;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        /* シンプルなダークモード対応（必要に応じてLayoutへ移行） */
-        .nav-back { color: var(--pop-white); background: var(--pop-dark); }
-        th { color: var(--pop-dark); }
     }
 
     @media (max-width: 600px) {
         .header h1 { font-size: 2rem; }
         .container { padding: 1rem; }
         th, td { padding: 0.8rem 0.5rem; font-size: 0.9rem; }
+        .media-container.inline-media {
+            float: none;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        .gallery-item {
+            flex: 0 0 90%;
+        }
     }
 </style>
+
+<script>
+    const scroll = document.getElementById('galleryScroll');
+    const dots = document.querySelectorAll('#galleryDots .gallery-dot');
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    const items = scroll.querySelectorAll('.gallery-item');
+    let currentIndex = 0;
+
+    function scrollToIndex(index) {
+        if (index < 0) index = 0;
+        if (index >= items.length) index = items.length - 1;
+        currentIndex = index;
+        items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+    nextBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => scrollToIndex(i));
+    });
+
+    // スクロール位置からアクティブなドットを更新
+    let scrollTimeout;
+    scroll.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const scrollLeft = scroll.scrollLeft;
+            const itemWidth = items[0].offsetWidth + 16; // gap分
+            const newIndex = Math.round(scrollLeft / itemWidth);
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
+                currentIndex = newIndex;
+                updateDots();
+            }
+        }, 50);
+    });
+</script>
