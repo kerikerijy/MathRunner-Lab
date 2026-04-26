@@ -26,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
                 <p class="app-desc">クラス管理をもっと楽しく！iPad専用の高度な席替え＆出欠管理アプリ。先生の業務を強力にサポート。</p>
                 <div class="badges">
                     <span class="badge bg-education">教育</span>
-                    <span class="badge" style="background: var(--pop-dark); color: white; cursor: pointer;" onclick="event.preventDefault(); window.location.href='/MathRunner-Lab/seating-master-manual';">マニュアル</span>
+                    <span class="badge badge-manual" onclick="event.preventDefault(); window.location.href='/MathRunner-Lab/seating-master-manual';">📖 マニュアル →</span>
                 </div>
             </a>
 
@@ -330,6 +330,21 @@ h1 {
 .bg-game { background: #FFF3E0; color: #E65100; }
 .bg-utility { background: #E8F5E9; color: #1B5E20; }
 .bg-free { background: var(--pop-yellow); color: var(--pop-dark); }
+
+.badge-manual {
+    background: var(--pop-blue);
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0px var(--pop-dark);
+}
+
+.badge-manual:hover {
+    background: var(--pop-orange);
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0px var(--pop-dark);
+}
 
 /* ============================
    Contact Section
