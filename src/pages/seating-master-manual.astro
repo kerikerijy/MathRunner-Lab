@@ -93,6 +93,59 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <div class="feature-card">
+                <h3>📋 提出物管理 <span class="badge badge-new">NEW</span></h3>
+                <p>課題の提出状況を座席表UI上でサクサク入力＆管理できる、先生の強い味方機能。<strong>全プラン無料</strong>でご利用いただけます！</p>
+                <div class="screenshot-gallery" id="submissionGallery">
+                    <button class="gallery-nav gallery-prev" data-gallery="submission" aria-label="前へ">‹</button>
+                    <button class="gallery-nav gallery-next" data-gallery="submission" aria-label="次へ">›</button>
+                    <div class="gallery-scroll" data-gallery-scroll="submission">
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/sm_submission_create.png" alt="課題の作成画面" loading="lazy" />
+                            <p class="gallery-caption">課題名・科目・締切日時を設定して作成</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/sm_submission_list.png" alt="提出物一覧画面" loading="lazy" />
+                            <p class="gallery-caption">クラスごとの課題一覧・提出状況を管理</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/sm_submission_input.png" alt="提出物入力画面" loading="lazy" />
+                            <p class="gallery-caption">座席表UIで提出/未提出をタップ入力</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/MathRunner-Lab/sm_submission_badge.png" alt="座席表バッジ表示" loading="lazy" />
+                            <p class="gallery-caption">座席表に提出状況バッジを表示</p>
+                        </div>
+                    </div>
+                    <div class="gallery-dots" data-gallery-dots="submission">
+                        <span class="gallery-dot active"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                        <span class="gallery-dot"></span>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>課題マスタ管理</strong>：課題名・科目・締切日時を設定し、クラスごとに課題一覧を管理。</li>
+                    <li><strong>座席表で直感入力</strong>：出欠管理と同じ座席表UIで、タップするだけで提出/未提出をサクサク切り替え。</li>
+                    <li><strong>8段階の評価ステータス</strong>：
+                        <div class="status-chips">
+                            <span class="chip chip-red">× 未提出</span>
+                            <span class="chip chip-green">○ 提出</span>
+                            <span class="chip chip-blue">◎ 優良</span>
+                            <span class="chip chip-yellow">△ イマイチ</span>
+                            <span class="chip chip-orange">遅○</span>
+                            <span class="chip chip-orange">遅◎</span>
+                            <span class="chip chip-orange">遅△</span>
+                            <span class="chip chip-gray">免 免除</span>
+                        </div>
+                        タップで○/×のかんたんトグル、長押しで全8ステータスから選択。
+                    </li>
+                    <li><strong>一括操作</strong>：「全員○」「全員×」ボタンで、まとめて設定OK。</li>
+                    <li><strong>座席表バッジ</strong>：使用中の課題の提出状況が座席表にバッジ表示されるので、未提出者が一目でわかります。</li>
+                    <li><strong>PDF出力</strong>：複数の課題を選択して、提出物管理表をPDFで出力可能。</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
                 <h3>出欠管理＆PDF出力 <span class="badge badge-ultra">ULTRA</span></h3>
                  <div class="media-container">
                    <video src="/MathRunner-Lab/sm_attendance.mp4" autoplay loop muted playsinline></video>
@@ -138,6 +191,12 @@ import Layout from '../layouts/Layout.astro';
                         <td>座席表の複数履歴保存</td>
                         <td>×</td>
                         <td>×</td>
+                        <td>○</td>
+                    </tr>
+                    <tr>
+                        <td>提出物管理・PDF出力</td>
+                        <td>○</td>
+                        <td>○</td>
                         <td>○</td>
                     </tr>
                     <tr>
@@ -467,6 +526,31 @@ import Layout from '../layouts/Layout.astro';
 
     .badge-pro { background: linear-gradient(45deg, var(--sm-accent), #FF4081); }
     .badge-ultra { background: linear-gradient(45deg, var(--sm-green), #8E24AA); }
+    .badge-new { background: linear-gradient(45deg, #FF6B35, #FFD700); }
+
+    /* Status Chips (提出物管理) */
+    .status-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.8rem 0;
+    }
+
+    .chip {
+        display: inline-block;
+        padding: 0.3rem 0.7rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    .chip-red { background: #E53935; }
+    .chip-green { background: #43A047; }
+    .chip-blue { background: #1E88E5; }
+    .chip-yellow { background: #F9A825; color: #333; }
+    .chip-orange { background: #FB8C00; }
+    .chip-gray { background: #78909C; }
 
     .mdm-box {
         background: rgba(139, 90, 43, 0.1); /* wood shadow */
@@ -501,46 +585,51 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-    const scroll = document.getElementById('galleryScroll');
-    const dots = document.querySelectorAll('#galleryDots .gallery-dot');
-    const prevBtn = document.querySelector('.gallery-prev');
-    const nextBtn = document.querySelector('.gallery-next');
-    const items = scroll.querySelectorAll('.gallery-item');
-    let currentIndex = 0;
+    // 汎用ギャラリー初期化（複数ギャラリー対応）
+    function initGallery(galleryEl) {
+        const scroll = galleryEl.querySelector('.gallery-scroll');
+        const dots = galleryEl.querySelectorAll('.gallery-dot');
+        const prevBtn = galleryEl.querySelector('.gallery-prev');
+        const nextBtn = galleryEl.querySelector('.gallery-next');
+        const items = scroll.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
 
-    function scrollToIndex(index) {
-        if (index < 0) index = 0;
-        if (index >= items.length) index = items.length - 1;
-        currentIndex = index;
-        items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        updateDots();
-    }
+        function scrollToIndex(index) {
+            if (index < 0) index = 0;
+            if (index >= items.length) index = items.length - 1;
+            currentIndex = index;
+            items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            updateDots();
+        }
 
-    function updateDots() {
+        function updateDots() {
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
+        nextBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
+
         dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
+            dot.addEventListener('click', () => scrollToIndex(i));
+        });
+
+        let scrollTimeout;
+        scroll.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const scrollLeft = scroll.scrollLeft;
+                const itemWidth = items[0].offsetWidth + 16;
+                const newIndex = Math.round(scrollLeft / itemWidth);
+                if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
+                    currentIndex = newIndex;
+                    updateDots();
+                }
+            }, 50);
         });
     }
 
-    prevBtn.addEventListener('click', () => scrollToIndex(currentIndex - 1));
-    nextBtn.addEventListener('click', () => scrollToIndex(currentIndex + 1));
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => scrollToIndex(i));
-    });
-
-    // スクロール位置からアクティブなドットを更新
-    let scrollTimeout;
-    scroll.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            const scrollLeft = scroll.scrollLeft;
-            const itemWidth = items[0].offsetWidth + 16; // gap分
-            const newIndex = Math.round(scrollLeft / itemWidth);
-            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < items.length) {
-                currentIndex = newIndex;
-                updateDots();
-            }
-        }, 50);
-    });
+    // 全ギャラリーを初期化
+    document.querySelectorAll('.screenshot-gallery').forEach(initGallery);
 </script>
