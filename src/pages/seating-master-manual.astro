@@ -210,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
 
             <h2>教育機関(MDM)でのご利用</h2>
             <div class="mdm-box border-wood">
-                <p>学校や自治体単位でiPadを一括管理（MDM）されている場合、<code>Managed App Configuration</code> に専用のライセンスキー（<code>LicenseKey</code>）を設定することで、全iPadで即座にULTRA機能をご利用いただけます。<br>導入をご検討の学校様は、サポートまでお問い合わせください。</p>
+                <p>学校や自治体単位でiPadを一括管理（MDM）されている場合、<code>Managed App Configuration</code> に専用のライセンスキー（<code>LicenseKey</code>）を設定することで、学校管理の教員用全iPadで即座にULTRA機能をご利用いただけます。<br>導入をご検討の学校様は、<a href="/MathRunner-Lab/#contact" class="mdm-link">サポート</a>までお問い合わせください。</p>
             </div>
         </div>
     </div>
@@ -558,6 +558,18 @@ import Layout from '../layouts/Layout.astro';
         padding: 1.5rem;
         border-radius: 8px;
         margin-top: 1rem;
+    }
+
+    .mdm-link {
+        color: var(--sm-green);
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        transition: color 0.2s;
+    }
+
+    .mdm-link:hover {
+        color: var(--sm-accent);
     }
 
     code {
