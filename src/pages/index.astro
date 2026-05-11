@@ -15,6 +15,22 @@ import Layout from '../layouts/Layout.astro';
         </header>
 
         <div class="apps-grid">
+            <!-- App: ドリルますたー (TODO: App Store URL を差し替える) -->
+            <a href="#"
+                target="_blank" class="app-card app-card--coming-soon">
+                <div class="card-header">
+                    <img src="/MathRunner-Lab/dm_app_icon.png"
+                        alt="Icon" class="app-icon">
+                    <div class="app-title">ドリルますたー</div>
+                </div>
+                <p class="app-desc">先生が作って生徒に配る、iPad専用の手書きドリルアプリ。PDF出力・iCloud共有対応で授業をもっとスマートに。</p>
+                <div class="badges">
+                    <span class="badge bg-education">教育</span>
+                    <span class="badge bg-paid">¥1,000</span>
+                    <span class="badge bg-review">審査中</span>
+                </div>
+            </a>
+
             <!-- App 0: 座席ますたー (New) -->
             <a href="https://apps.apple.com/jp/app/%E5%BA%A7%E5%B8%AD%E3%81%BE%E3%81%99%E3%81%9F%E3%83%BC/id6758137498"
                 target="_blank" class="app-card">
@@ -135,6 +151,7 @@ import Layout from '../layouts/Layout.astro';
                         <label for="app" class="form-label">対象アプリ <span class="required-tag">必須</span></label>
                         <select id="app" name="app" class="form-select" required>
                             <option value="" disabled selected>選択してください</option>
+                            <option value="ドリルますたー">ドリルますたー</option>
                             <option value="座席ますたー">座席ますたー</option>
                             <option value="三角比ますたー">三角比ますたー</option>
                             <option value="積分ますたー">積分ますたー</option>
@@ -330,6 +347,14 @@ h1 {
 .bg-game { background: #FFF3E0; color: #E65100; }
 .bg-utility { background: #E8F5E9; color: #1B5E20; }
 .bg-free { background: var(--pop-yellow); color: var(--pop-dark); }
+.bg-paid { background: #FCE4EC; color: #880E4F; }
+.bg-review { background: #EDE7F6; color: #4527A0; }
+
+.app-card--coming-soon {
+    opacity: 0.75;
+    cursor: default;
+    pointer-events: none;
+}
 
 .badge-manual {
     background: var(--pop-blue);
